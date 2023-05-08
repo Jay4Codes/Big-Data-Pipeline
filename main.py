@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 site_df = pd.read_csv(
-    './bde_data/site_metadata-7fc535965d0c074cea0be6786fc9518e.csv')
+    './bde_data/site_metadata.csv')
 
 st.sidebar.title('BDE Mini Project')
 rad1 = st.sidebar.radio("Navigation", ["Plant Locations", "Customer Plants",
@@ -25,9 +25,6 @@ if rad1 == "Plant Locations":
     st.title('BDE Mini Project')
 
     st.subheader('Locate Plants')
-
-    site_df = pd.read_csv(
-        './bde_data/site_metadata.csv')
 
     m = folium.Map(location=[site_df['LATITUDE'].mean(
     ), site_df['LONGITUDE'].mean()], zoom_start=4, control_scale=True)
