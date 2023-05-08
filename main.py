@@ -88,38 +88,10 @@ if rad1 == "Thermal Efficiency":
 
     st.subheader('Thermal Efficiency')
 
-    downloaded_data_list_1 = os.listdir('data/PLANTS')
-    plant_names = []
-    for file in downloaded_data_list_1:
-        plant_names.append(file[:-4])
+    df = pd.read_csv(
+        'https://storage.cloud.google.com/bde-git/analysed_data/ABORIGINAL-PICULET.csv/part-00000-2a399fe4-72d2-41b2-8274-0549c53bd1ae-c000.csv?authuser=0')
 
-    selected_plant = st.selectbox('Plant Names', plant_names)
-
-    plant_df = pd.read_csv(f'./data/PLANTS/{selected_plant}.csv')
-
-    line_date = pd.DataFrame(plant_df['THERMAL_EFF'])
-
-    line_df = plant_df['THERMAL_EFF']
-
-    intervals = ('Daily', 'Weekly', 'Monthly', 'Quaterly')
-    input = st.selectbox('Interval', intervals)
-
-    if input == 'Daily':
-        interval = '1d'
-    elif input == 'Weekly':
-        interval = '1wk'
-    elif input == 'Monthly':
-        interval = '1mo'
-    elif input == 'Quaterly':
-        interval = '3mo'
-    else:
-        interval = '1d'
-
-    input_months = None
-    input_months = st.number_input(
-        'Enter No of previous Months Historical Data', min_value=0, max_value=12, value=0, step=1)
-
-    st.area_chart(line_df)
+    st.write(df)
 
 if rad1 == "N2 Emmission":
     m = leafmap.Map(tiles="stamentoner")
