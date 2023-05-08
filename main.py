@@ -88,8 +88,7 @@ if rad1 == "Thermal Efficiency":
 
     st.subheader('Thermal Efficiency')
 
-    df = pd.read_csv(
-        'https://storage.cloud.google.com/bde-git/analysed_data/ABORIGINAL-PICULET.csv/part-00000-2a399fe4-72d2-41b2-8274-0549c53bd1ae-c000.csv?authuser=0')
+    df = pd.read_csv('./analysed_data/ABORIGINAL-PICULET.csv')
 
     st.write(df)
 
