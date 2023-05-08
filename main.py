@@ -8,21 +8,21 @@ import leafmap.foliumap as leafmap
 import os
 
 st.set_page_config(
-    page_title="Gas Turbine",
+    page_title="BDE Mini Project",
     page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
 site_df = pd.read_csv(
-    './data/site_metadata-7fc535965d0c074cea0be6786fc9518e.csv')
+    './bde_data/site_metadata-7fc535965d0c074cea0be6786fc9518e.csv')
 
-st.sidebar.title('Gas Turbine')
+st.sidebar.title('BDE Mini Project')
 rad1 = st.sidebar.radio("Navigation", ["Plant Locations", "Customer Plants",
                         "Elevation", "Thermal Efficiency", "N2 Emmission", "Operational Hours"])
 
 if rad1 == "Plant Locations":
-    st.title('Gas Turbine')
+    st.title('BDE Mini Project')
 
     st.subheader('Locate Plants')
 
@@ -38,7 +38,7 @@ if rad1 == "Plant Locations":
     folium_static(m)
 
 if rad1 == "Customer Plants":
-    st.title('Gas Turbine')
+    st.title('BDE Mini Project')
 
     st.subheader('Customer Plants Numbers')
 
@@ -49,7 +49,7 @@ if rad1 == "Customer Plants":
     st.bar_chart(chart_data)
 
 if rad1 == "Elevation":
-    st.title('Gas Turbine')
+    st.title('BDE Mini Project')
 
     st.subheader('Plant Elevations')
 
@@ -87,7 +87,7 @@ if rad1 == "Elevation":
     ))
 
 if rad1 == "Thermal Efficiency":
-    st.title('Gas Turbine')
+    st.title('BDE Mini Project')
 
     st.subheader('Thermal Efficiency')
 
@@ -126,7 +126,7 @@ if rad1 == "Thermal Efficiency":
 
 if rad1 == "N2 Emmission":
     m = leafmap.Map(tiles="stamentoner")
-    st.title('Gas Turbine')
+    st.title('BDE Mini Project')
 
     st.subheader('N2 Emmission')
 
@@ -144,7 +144,7 @@ if rad1 == "N2 Emmission":
 
 if rad1 == "Operational Hours":
 
-    st.title('Gas Turbine')
+    st.title('BDE Mini Project')
 
     st.subheader('Operational Hours')
 
