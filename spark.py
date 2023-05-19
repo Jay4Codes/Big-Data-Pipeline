@@ -9,12 +9,12 @@ print('Starting spark Session')
 site_df = spark.read.format("csv") \
     .option("header", "true") \
     .option("inferSchema", "true") \
-    .load("gs://bde-git/bde_data/site_metadata.csv")
+    .load("gs://gas-turbine-data/turbine-data/site_metadata.csv")
 
 print('Loaded site metadata')
 
 df = spark.read.format("csv").option("header", "true").option(
-    "inferSchema", "true").load("gs://bde-git/bde_data/plant_data/ABORIGINAL-PICULET.csv")
+    "inferSchema", "true").load("gs://gas-turbine-data/turbine-data/plant_data/ABORIGINAL-PICULET.csv")
 
 print('Loaded plant data')
 
@@ -42,7 +42,7 @@ print('Calculated thermal efficiency')
 
 # Write the processed DataFrame to CSV
 df.write.format("csv").option("header", "true").mode(
-    "overwrite").option("delimiter", ",").save("gs://bde-git/analysed_data/ABORIGINAL-PICULET.csv")
+    "overwrite").option("delimiter", ",").save("gs://gas-turbine-data/analysed-data/ABORIGINAL-PICULET.csv")
 
 print('Finished processing files')
 
